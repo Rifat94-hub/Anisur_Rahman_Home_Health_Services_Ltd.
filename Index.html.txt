@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Anisur Rahman Health Care Services Ltd.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Provide patient care & health services every home in Bangladesh. Doctor visit, medicine delivery, ambulance support nationwide.">
+<meta name="theme-color" content="#0a9d8e">
+
+<!-- ========== COLOR SYSTEM ========== -->
+<style>
+:root {
+    --brand-teal-dark: #0a9d8e;
+    --brand-teal-light: #08c7a5;
+    --brand-accent: #0fb8c9;
+    --text-dark: #0d0d0d;
+    --text-mid: #555;
+    --text-light: #fff;
+    --bg-body: #f9f9f9;
+    --radius: 12px;
+    --shadow-1: 0 2px 6px rgba(0,0,0,.08);
+    --shadow-2: 0 8px 24px rgba(0,0,0,.12);
+    --max-width: 1200px;
+    --header-height: 72px;
+    --transition: 0.25s ease;
+    --font-main: "Inter", Arial, sans-serif;
+}
+@media (prefers-reduced-motion:reduce){
+    :root{--transition:0s;}
+}
+html{scroll-behavior:smooth;}
+body{
+    margin:0;
+    font-family:var(--font-main);
+    background:var(--bg-body);
+    color:var(--text-dark);
+    line-height:1.5;
+}
+
+/* HEADER */
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:linear-gradient(90deg,var(--brand-teal-dark),var(--brand-teal-light));
+    color:var(--text-light);
+    padding:8px 16px;
+    box-shadow:var(--shadow-1);
+}
+.site-header-inner{
+    max-width:var(--max-width);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+.brand-block{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+.brand-block h1{
+    margin:0;
+    font-size:clamp(1.1rem,2vw,1.5rem);
+    font-weight:700;
+    letter-spacing:.2px;
+}
+.brand-block .tagline{
+    margin-top:2px;
+    font-size:clamp(.65rem,1.5vw,.85rem);
+    font-style:italic;
+    text-shadow:0 1px 2px rgba(0,0,0,.35), 0 0 6px rgba(255,255,255,.25);
+    opacity:.95;
+}
+
+/* NAV */
+.nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:var(--text-light);
+    font-size:1.5rem;
+    line-height:1;
+    cursor:pointer;
+}
+.primary-nav{
+    display:flex;
+    gap:24px;
+    align-items:center;
+}
+.primary-nav a{
+    color:var(--text-light);
+    text-decoration:none;
+    font-weight:600;
+    font-size:.95rem;
+    position:relative;
+    padding:4px 0;
+}
+.primary-nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:0;
+    height:2px;
+    background:var(--text-light);
+    transition:width var(--transition);
+}
+.primary-nav a:hover::after,
+.primary-nav a:focus-visible::after{
+    width:100%;
+}
+@media (max-width:640px){
+    .primary-nav{
+        position:absolute;
+        top:var(--header-height);
+        right:16px;
+        background:linear-gradient(180deg,var(--brand-teal-dark),var(--brand-teal-light));
+        flex-direction:column;
+        padding:16px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-2);
+        max-height:0;
+        overflow:hidden;
+        transition:max-height var(--transition);
+    }
+    .primary-nav.open{max-height:240px;}
+    .nav-toggle{display:block;}
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    min-height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:96px 16px 120px;
+    color:var(--text-light);
+    background:
+        linear-gradient(rgba(10,157,142,.85),rgba(8,199,165,.85)),
+        url("https://images.unsplash.com/photo-1580281657521-3898a9a5305d?auto=format&fit=crop&w=1920&q=80")
+        center/cover no-repeat;
+}
+.hero h2{
+    margin:0 0 16px;
+    font-size:clamp(2rem,5vw,3rem);
+    font-weight:700;
+}
+.hero p{
+    margin:0 0 32px;
+    font-size:clamp(1rem,2.5vw,1.35rem);
+    opacity:.95;
+}
+.cta-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    justify-content:center;
+}
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    font-size:1rem;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:999px;
+    transition:transform var(--transition), box-shadow var(--transition);
+    cursor:pointer;
+}
+.btn-primary{
+    background:var(--text-light);
+    color:var(--brand-teal-dark);
+    box-shadow:var(--shadow-1);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-2);}
+.btn-outline{
+    border:2px solid var(--text-light);
+    color:var(--text-light);
+}
+.btn-outline:hover{transform:translateY(-2px);background:rgba(255,255,255,.15);}
+
+/* SECTIONS */
+.section{
+    padding:80px 16px;
+}
+.section-narrow{
+    max-width:var(--max-width);
+    margin:0 auto;
+}
+.section-title{
+    text-align:center;
+    margin:0 0 48px;
+    font-size:clamp(1.75rem,3vw,2.25rem);
+    color:var(--brand-teal-dark);
+}
+.section-lead{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 64px;
+    color:var(--text-mid);
+    font-size:1.05rem;
+}
+
+/* SERVICES GRID */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+    gap:32px;
+}
+.service-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:32px 24px;
+    box-shadow:var(--shadow-1);
+    text-align:center;
+    transition:transform var(--transition), box-shadow var(--transition);
+}
+.service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-2);
+}
+.service-icon{
+    font-size:3rem;
+    line-height:1;
+    margin-bottom:16px;
+}
+.service-card h3{
+    margin:0 0 12px;
+    font-size:1.25rem;
+    color:var(--brand-teal-dark);
+}
+.service-card p{
+    margin:0;
+    color:var(--text-mid);
+    font-size:.98rem;
+}
+
+/* ABOUT */
+.about-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
+}
+.about-cols img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-1);
+}
+.about-text h3{
+    margin-top:0;
+    font-size:1.5rem;
+    color:var(--brand-teal-dark);
+}
+.about-text p{color:var(--text-mid);}
+.about-stats{
+    margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+}
+.about-stat{
+    flex:1 1 120px;
+    text-align:center;
+    background:#fff;
+    padding:16px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-1);
+}
+.about-stat strong{
+    display:block;
+    font-size:1.35rem;
+    color:var(--brand-teal-dark);
+}
+.about-stat span{
+    font-size:.9rem;
+    color:var(--text-mid);
+}
+@media (max-width:768px){
+    .about-cols{grid-template-columns:1fr;gap:32px;text-align:center;}
+    .about-stats{justify-content:center;}
+}
+
+/* CONTACT FORM */
+.contact-wrap{
+    max-width:600px;
+    margin:0 auto;
+    background:#fff;
+    padding:48px 32px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-2);
+}
+.contact-wrap h3{
+    margin-top:0;
+    text-align:center;
+    font-size:1.5rem;
+    color:var(--brand-teal-dark);
+}
+.form-field{
+    margin-bottom:24px;
+}
+.form-field label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    font-size:.95rem;
+}
+.form-field input,
+.form-field textarea{
+    width:100%;
+    padding:14px 16px;
+    font-size:1rem;
+    border:2px solid #e0e0e0;
+    border-radius:var(--radius);
+    font-family:inherit;
+    transition:border var(--transition), box-shadow var(--transition);
+}
+.form-field input:focus,
+.form-field textarea:focus{
+    outline:none;
+    border-color:var(--brand-teal-dark);
+    box-shadow:0 0 0 3px rgba(10,157,142,.25);
+}
+.form-field textarea{resize:vertical;min-height:120px;}
+.contact-actions{text-align:center;}
+.contact-actions button{
+    border:none;
+    background:var(--brand-teal-dark);
+    color:var(--text-light);
+    padding:16px 48px;
+    font-size:1.05rem;
+    font-weight:700;
+    border-radius:999px;
+    cursor:pointer;
+    transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.contact-actions button:hover{
+    background:var(--brand-teal-light);
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-2);
+}
+
+/* FOOTER */
+.site-footer{
+    background:var(--brand-teal-dark);
+    color:var(--text-light);
+    text-align:center;
+    padding:48px 16px;
+    margin-top:120px;
+}
+.site-footer-inner{
+    max-width:var(--max-width);
+    margin:0 auto;
+}
+.footer-brand{
+    font-weight:700;
+    font-size:1.15rem;
+}
+.footer-social{
+    margin:24px 0;
+    display:flex;
+    justify-content:center;
+    gap:24px;
+}
+.footer-social a{
+    color:var(--text-light);
+    text-decoration:none;
+    font-size:1.5rem;
+    line-height:1;
+}
+.footer-copy{
+    font-size:.9rem;
+    opacity:.9;
+}
+
+/* UTIL */
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    border:0;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="top">
+  <div class="site-header-inner">
+    <div class="brand-block">
+      <h1>Anisur Rahman Health Care Services Ltd.</h1>
+      <!-- NB: Tagline kept as you wrote it -->
+      <span class="tagline">Provide patient care &amp; health services every home in Bangladesh</span>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" onclick="toggleNav()" title="Toggle navigation">☰</button>
+    <nav class="primary-nav" id="primary-nav">
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" role="banner">
+  <div class="hero-content">
+    <h2>Your Health, Our Priority</h2>
+    <p>Bringing Quality Health Care To Your Doorstep Across Bangladesh.</p>
+    <div class="cta-group">
+      <!-- Replace phone/WhatsApp with your real numbers -->
+      <a class="btn btn-primary" href="tel:+8801XXXXXXXXX">Call Now</a>
+      <a class="btn btn-outline" href="https://wa.me/8801XXXXXXXXX?text=Hello%20Anisur%20Rahman%20Health%20Care%20Services" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-outline" href="#contact">Book Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="section-narrow">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-lead">Doorstep healthcare solutions designed for every family in Bangladesh.</p>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>Doctor Home Visit</h3>
+        <p>Experienced, registered physicians visit your home for checkups & follow-ups.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">💊</div>
+        <h3>Medicine Delivery</h3>
+        <p>Fast, verified pharmacy meds delivered safely to your door—nationwide rollout.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🚑</div>
+        <h3>24/7 Ambulance</h3>
+        <p>Emergency transportation support with trained attendants & hospital coordination.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="section-narrow about-cols">
+    <div class="about-text">
+      <h3>Who We Are</h3>
+      <p><strong>Anisur Rahman Health Care Services Ltd.</strong> একটি উদ্যোগ যা দেশের প্রতিটি ঘরে মানসম্মত স্বাস্থ্যসেবা পৌঁছে দেওয়ার লক্ষ্যে শুরু হয়েছে। আমরা সহজলভ্য, সাশ্রয়ী, এবং নির্ভরযোগ্য সেবাকে প্রাধান্য দিই—বিশেষত যারা দূরবর্তী জেলা বা গ্রামে থাকেন।</p>
+      <p>আমাদের লক্ষ্য: ঘরে বসে ডাক্তার পরামর্শ, ওষুধ সরবরাহ, জরুরি অ্যাম্বুলেন্স—সব এক প্ল্যাটফর্মে।</p>
+
+      <div class="about-stats">
+        <div class="about-stat">
+          <strong>64</strong><span>District Vision</span>
+        </div>
+        <div class="about-stat">
+          <strong>24/7</strong><span>Support</span>
+        </div>
+        <div class="about-stat">
+          <strong>1</strong><span>Central Office (Tangail)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=900&q=80" alt="Healthcare professional supporting patient">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="section-narrow contact-wrap">
+    <h3>Contact Us / Book a Service</h3>
+    <!-- Replace action below with your form handler (Formspree, server, etc.) -->
+    <form id="contact-form" action="#" method="post" onsubmit="return submitContact(event)">
+      <div class="form-field">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" required placeholder="Your Name">
+      </div>
+      <div class="form-field">
+        <label for="cf-phone">Phone (Bangladesh)</label>
+        <input type="tel" id="cf-phone" name="phone" required placeholder="+8801XXXXXXXXX" pattern="^(\\+?8801[0-9]{8})$">
+      </div>
+      <div class="form-field">
+        <label for="cf-msg">Message</label>
+        <textarea id="cf-msg" name="message" required placeholder="How can we help?"></textarea>
+      </div>
+      <div class="contact-actions">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-brand">Anisur Rahman Health Care Services Ltd.</div>
+    <div class="footer-social" aria-label="Social media">
+      <!-- Update with real profile links -->
+      <a href="#" title="Facebook" aria-label="Facebook">📘</a>
+      <a href="#" title="WhatsApp" aria-label="WhatsApp">💬</a>
+      <a href="mailto:info@example.com" title="Email" aria-label="Email">✉️</a>
+    </div>
+    <div class="footer-copy">© 2025 Anisur Rahman Health Care Services Ltd. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+function toggleNav(){
+  const nav = document.getElementById('primary-nav');
+  const btn = document.querySelector('.nav-toggle');
+  const open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+/* Simple contact handler: opens WhatsApp with prefilled message */
+function submitContact(e){
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  const msg = document.getElementById('cf-msg').value.trim();
+
+  // Replace this with your business WhatsApp number (no + sign, country code first)
+  const businessNumber = "8801XXXXXXXXX";
+
+  const text = encodeURIComponent(
+    "New inquiry from website:%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Message: " + msg
+  );
+  const waURL = "https://wa.me/" + businessNumber + "?text=" + text;
+  window.open(waURL, "_blank");
+  e.target.reset();
+  alert("Thank you! We'll connect with you soon (WhatsApp window opening).");
+  return false;
+}
+</script>
+
+</body>
+</html>
